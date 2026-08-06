@@ -1,0 +1,54 @@
+site_name: Agentic Powered Development — Workshop
+site_description: Building enterprise apps with AI — on the platform and off it.
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.top
+    - navigation.tracking
+    - content.code.copy
+    - toc.follow
+    - search.suggest
+  palette:
+    - scheme: default
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+nav:
+  - Welcome: index.md
+  - Before you start: before-you-start.md
+  - The two approaches: two-approaches.md
+  - Track A · On-platform (Build Agent): track-a-build-agent.md
+  - Track B · Off-platform (SDK + Devin): track-b-sdk-devin.md
+  - Testing with ATF: testing-atf.md
+  - Source control & GitHub: source-control-github.md
+  - Resources & where next: resources.md
