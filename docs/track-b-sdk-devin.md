@@ -1,4 +1,4 @@
-# Track B · Off-platform (SDK + Devin)
+# Off-platform build (SDK)
 
 Build the same *kind* of app off-platform: an AI IDE drives the ServiceNow SDK (Fluent)
 to generate versioned source, then installs it onto the instance. Runs ~40 minutes end
@@ -9,7 +9,7 @@ to end.
     stages, and take the prompts away to run later.
 
 === "Follow along"
-    You'll need the Track B prerequisites (AI IDE, Node, Git, SDK, an auth alias).
+    You'll need the off-platform prerequisites (AI IDE, Node, Git, SDK, an auth alias).
     Set your instance auth alias **in the terminal** first — never paste credentials
     into a prompt.
 

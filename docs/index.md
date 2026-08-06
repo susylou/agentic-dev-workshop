@@ -10,17 +10,12 @@ either.
 
 The developer-capacity problem, and why agentic tooling is the answer worth your time.
 
-## The big idea: two worlds
+## What you'll do
 
-There are two ways to build with AI on ServiceNow, and knowing which one you're in is
-half the skill:
+Two ways to build with AI on ServiceNow:
 
-- **On-platform** — the **Build Agent** inside ServiceNow Studio.
+- **On-platform** — the **Build Agent**, in ServiceNow Studio.
 - **Off-platform** — the **ServiceNow SDK (Fluent)**, driven by an AI-enabled IDE.
-
-They both reach the platform, and they meet through source control — but *not* in the
-middle. That difference is the spine of the whole workshop; it's unpacked in
-[The two approaches](two-approaches.md).
 
 ## How to use this guide
 

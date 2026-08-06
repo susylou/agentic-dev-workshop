@@ -46,9 +46,8 @@ markdown_extensions:
 nav:
   - Welcome: index.md
   - Before you start: before-you-start.md
-  - The two approaches: two-approaches.md
-  - Track A · On-platform (Build Agent): track-a-build-agent.md
-  - Track B · Off-platform (SDK + Devin): track-b-sdk-devin.md
+  - The Build Agent lab: track-a-build-agent.md
+  - Off-platform build (SDK): track-b-sdk-devin.md
   - Testing with ATF: testing-atf.md
   - Source control & GitHub: source-control-github.md
   - Resources & where next: resources.md
