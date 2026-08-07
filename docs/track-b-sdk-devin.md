@@ -1,8 +1,8 @@
 # Off-platform build (SDK)
 
 Build the same *kind* of app off-platform: an AI IDE drives the ServiceNow SDK (Fluent)
-to generate versioned source, then installs it onto the instance. Runs ~40 minutes end
-to end.
+to generate versioned source, then installs it onto the instance. Four prompts,
+~40 minutes end to end.
 
 === "Watch"
     This is the intended experience for most of the room — watch the build happen in
@@ -16,14 +16,112 @@ to end.
 ## Setup
 
 1. Open your AI-enabled IDE with the project folder.
-2. Confirm your **auth alias** points at the workshop instance (set in the terminal).
-3. Keep the **design brief + prototype** in the project so the agent ports the design,
-   not a flat guess.
+2. Confirm your **auth alias** points at the workshop instance (these prompts use one
+   named `arts-dev`) — set it in the terminal, never in a prompt.
+3. Keep the **design brief + prototype** in the project (`./design`) so the agent ports
+   the design, not a flat guess.
+
+## The prompts
+
+### Prompt 1 — Scaffold app + EOI table
+
+```text
+Using the ServiceNow SDK (Fluent) and the servicenow-fluent-companion skill,
+create a new scoped application. Ground yourself with `now-sdk explain` for the
+table/field APIs before writing metadata — don't rely on recall.
+
+- App: "Creative Futures Fund", scope x_snc_arts
+  (prefix MUST match the instance company code "snc"; do not touch the allowlist)
+- Table: x_snc_arts_eoi, label "Expression of Interest", auto-number prefix "EOI"
+- Fields:
+    title              string, mandatory
+    idea               string (large)
+    artform            choice: Visual arts / Performing arts / Music & sound /
+                       Literature & storytelling / Screen & digital /
+                       Ngā Toi Māori — Māori arts / Across artforms
+    indicative_amount  choice: Up to $5,000 / $5,000–$25,000 /
+                       $25,000–$100,000 / Over $100,000
+    applicant          reference sys_user, default javascript:gs.getUserID()
+    status             choice: Received / Under review / Invited to apply /
+                       Not progressing  (default Received)
+    ai_summary         string (large)
+
+Data model only — no flow, no AI action, no agent, and NO linked/reference field to
+any OOTB table (incident/case/request). This app is deliberately self-contained.
+```
 
 !!! check "Done when"
-    - [ ] `now-sdk install` succeeds with **no "application was null"** error
-    - [ ] The app + portal render on the instance
-    - [ ] A record can be lodged and appears back in the list
+    - [ ] The app scaffolds and the table + fields exist in Fluent source.
+
+### Prompt 2 — Service Portal (with the clickable record link)
+
+```text
+Build a Service Portal for this app, porting the design faithfully from ./design
+(prototype.html + design-brief.md): cool teal/coral/gold "gallery" palette, serif
+display, the spotlit framed-canvas hero with its plaque. Uniquely prefix every portal
+record (e.g. arts_) so nothing collides with OOB.
+
+Portal, top to bottom:
+  1. hero (headline, lede, one-line-idea field, framed-canvas + plaque)
+  2. "How it works" 1-2-3 band: Lodge → Review → Apply in full
+  3. discipline tiles (4) that preselect artform on the form
+  4. a request form that inserts straight into x_snc_arts_eoi
+  5. "Your EOIs" list at the BOTTOM showing the current applicant's records
+
+THE NEW PART — link each row to its record:
+  - Add an on-brand detail PAGE + widget (e.g. page id arts_eoi_detail) that reads the
+    sys_id from the URL and shows that EOI's full record in the portal's styling
+    (title, idea, artform, indicative amount, status, ai_summary).
+  - Each row in "Your EOIs" links to it: ?id=arts_eoi_detail&sys_id=<record sys_id>.
+  - Do NOT link to the backend form or any OOTB ticket view — stay in this app.
+
+On submit the new EOI appears in the bottom list without a full reload
+($rootScope broadcast between the form and list widgets).
+The AI assist panel is client-side draft only (as in the prototype) — do NOT wire a
+server-side flow or AI action; that's a later on-platform step.
+```
+
+!!! check "Done when"
+    - [ ] Portal, theme, pages and widgets exist in Fluent source.
+
+### Prompt 3 — Build, install, verify the click-through
+
+```text
+Run `npm install` if not already done, then `now-sdk build`, then
+`now-sdk install --auth arts-dev`.
+Then verify live: open the portal, lodge a test EOI through the form, confirm it appears
+in "Your EOIs" at the bottom, then CLICK that row and confirm the on-brand detail page
+opens showing the same record. Report the EOI number.
+```
+
+!!! check "Done when"
+    - [ ] Install succeeds with **no "application was null"** error.
+    - [ ] A submitted EOI shows in "Your EOIs".
+    - [ ] Clicking a row opens the in-app detail page for that record.
+
+### Prompt 4 — Author the ATF test (server-side)
+
+```text
+Using the servicenow-fluent-companion skill, first read `now-sdk explain atf-guide`
+and `now-sdk explain test-api` to ground the ATF Fluent API — don't rely on recall.
+
+Author ONE server-side ATF test for the Creative Futures Fund app (scope x_snc_arts),
+using the atf.server category:
+
+Test "Lodge and validate an EOI":
+  1. impersonate a test applicant (create or impersonate a standard user)
+  2. atf.server.recordInsert into x_snc_arts_eoi with a realistic EOI
+     (title, idea, artform, indicative_amount) — assert record_successfully_inserted
+  3. atf.server.recordValidation on that record — assert status defaulted to
+     "Received" and the title persisted (encoded query) — assert record_validated
+
+Do NOT use atf.form / atf.form_SP — the portal form is a custom widget, not a
+ServiceNow-rendered form, so the UI steps don't target it; the server layer is the
+correct test seam. Unique $id for the test and every step.
+```
+
+!!! check "Done when"
+    - [ ] The ATF test exists in Fluent source.
 
 !!! warning "If it breaks"
     - **"application was null"** on install → the scope prefix must match the instance
