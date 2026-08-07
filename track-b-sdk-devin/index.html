@@ -387,6 +387,67 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#the-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The prompts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The prompts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prompt-1-scaffold-app-eoi-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prompt 1 — Scaffold app + EOI table
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prompt-2-service-portal-with-the-clickable-record-link" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prompt 2 — Service Portal (with the clickable record link)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prompt-3-build-install-verify-the-click-through" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prompt 3 — Build, install, verify the click-through
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prompt-4-author-the-atf-test-server-side" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prompt 4 — Author the ATF test (server-side)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -513,6 +574,67 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#the-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The prompts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The prompts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prompt-1-scaffold-app-eoi-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prompt 1 — Scaffold app + EOI table
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prompt-2-service-portal-with-the-clickable-record-link" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prompt 2 — Service Portal (with the clickable record link)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prompt-3-build-install-verify-the-click-through" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prompt 3 — Build, install, verify the click-through
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prompt-4-author-the-atf-test-server-side" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prompt 4 — Author the ATF test (server-side)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -532,8 +654,8 @@
 
 <h1 id="off-platform-build-sdk">Off-platform build (SDK)<a class="headerlink" href="#off-platform-build-sdk" title="Permanent link">&para;</a></h1>
 <p>Build the same <em>kind</em> of app off-platform: an AI IDE drives the ServiceNow SDK (Fluent)
-to generate versioned source, then installs it onto the instance. Runs ~40 minutes end
-to end.</p>
+to generate versioned source, then installs it onto the instance. Four prompts,
+~40 minutes end to end.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Watch</label><label for="__tabbed_1_2">Follow along</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -550,16 +672,110 @@ into a prompt.</p>
 <h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Open your AI-enabled IDE with the project folder.</li>
-<li>Confirm your <strong>auth alias</strong> points at the workshop instance (set in the terminal).</li>
-<li>Keep the <strong>design brief + prototype</strong> in the project so the agent ports the design,
-   not a flat guess.</li>
+<li>Confirm your <strong>auth alias</strong> points at the workshop instance (these prompts use one
+   named <code>arts-dev</code>) — set it in the terminal, never in a prompt.</li>
+<li>Keep the <strong>design brief + prototype</strong> in the project (<code>./design</code>) so the agent ports
+   the design, not a flat guess.</li>
 </ol>
+<h2 id="the-prompts">The prompts<a class="headerlink" href="#the-prompts" title="Permanent link">&para;</a></h2>
+<h3 id="prompt-1-scaffold-app-eoi-table">Prompt 1 — Scaffold app + EOI table<a class="headerlink" href="#prompt-1-scaffold-app-eoi-table" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Using the ServiceNow SDK (Fluent) and the servicenow-fluent-companion skill,
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>create a new scoped application. Ground yourself with `now-sdk explain` for the
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>table/field APIs before writing metadata — don&#39;t rely on recall.
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>- App: &quot;Creative Futures Fund&quot;, scope x_snc_arts
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  (prefix MUST match the instance company code &quot;snc&quot;; do not touch the allowlist)
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>- Table: x_snc_arts_eoi, label &quot;Expression of Interest&quot;, auto-number prefix &quot;EOI&quot;
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>- Fields:
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    title              string, mandatory
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    idea               string (large)
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    artform            choice: Visual arts / Performing arts / Music &amp; sound /
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>                       Literature &amp; storytelling / Screen &amp; digital /
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>                       Ngā Toi Māori — Māori arts / Across artforms
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    indicative_amount  choice: Up to $5,000 / $5,000–$25,000 /
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>                       $25,000–$100,000 / Over $100,000
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    applicant          reference sys_user, default javascript:gs.getUserID()
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    status             choice: Received / Under review / Invited to apply /
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>                       Not progressing  (default Received)
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>    ai_summary         string (large)
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>Data model only — no flow, no AI action, no agent, and NO linked/reference field to
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>any OOTB table (incident/case/request). This app is deliberately self-contained.
+</code></pre></div>
 <div class="admonition check">
 <p class="admonition-title">Done when</p>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>now-sdk install</code> succeeds with <strong>no "application was null"</strong> error</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> The app + portal render on the instance</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A record can be lodged and appears back in the list</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> The app scaffolds and the table + fields exist in Fluent source.</li>
+</ul>
+</div>
+<h3 id="prompt-2-service-portal-with-the-clickable-record-link">Prompt 2 — Service Portal (with the clickable record link)<a class="headerlink" href="#prompt-2-service-portal-with-the-clickable-record-link" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Build a Service Portal for this app, porting the design faithfully from ./design
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>(prototype.html + design-brief.md): cool teal/coral/gold &quot;gallery&quot; palette, serif
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>display, the spotlit framed-canvas hero with its plaque. Uniquely prefix every portal
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>record (e.g. arts_) so nothing collides with OOB.
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>Portal, top to bottom:
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>  1. hero (headline, lede, one-line-idea field, framed-canvas + plaque)
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>  2. &quot;How it works&quot; 1-2-3 band: Lodge → Review → Apply in full
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>  3. discipline tiles (4) that preselect artform on the form
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>  4. a request form that inserts straight into x_snc_arts_eoi
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>  5. &quot;Your EOIs&quot; list at the BOTTOM showing the current applicant&#39;s records
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>THE NEW PART — link each row to its record:
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>  - Add an on-brand detail PAGE + widget (e.g. page id arts_eoi_detail) that reads the
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>    sys_id from the URL and shows that EOI&#39;s full record in the portal&#39;s styling
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>    (title, idea, artform, indicative amount, status, ai_summary).
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>  - Each row in &quot;Your EOIs&quot; links to it: ?id=arts_eoi_detail&amp;sys_id=&lt;record sys_id&gt;.
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>  - Do NOT link to the backend form or any OOTB ticket view — stay in this app.
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>On submit the new EOI appears in the bottom list without a full reload
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>($rootScope broadcast between the form and list widgets).
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>The AI assist panel is client-side draft only (as in the prototype) — do NOT wire a
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>server-side flow or AI action; that&#39;s a later on-platform step.
+</code></pre></div>
+<div class="admonition check">
+<p class="admonition-title">Done when</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Portal, theme, pages and widgets exist in Fluent source.</li>
+</ul>
+</div>
+<h3 id="prompt-3-build-install-verify-the-click-through">Prompt 3 — Build, install, verify the click-through<a class="headerlink" href="#prompt-3-build-install-verify-the-click-through" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Run `npm install` if not already done, then `now-sdk build`, then
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>`now-sdk install --auth arts-dev`.
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Then verify live: open the portal, lodge a test EOI through the form, confirm it appears
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>in &quot;Your EOIs&quot; at the bottom, then CLICK that row and confirm the on-brand detail page
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>opens showing the same record. Report the EOI number.
+</code></pre></div>
+<div class="admonition check">
+<p class="admonition-title">Done when</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Install succeeds with <strong>no "application was null"</strong> error.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A submitted EOI shows in "Your EOIs".</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Clicking a row opens the in-app detail page for that record.</li>
+</ul>
+</div>
+<h3 id="prompt-4-author-the-atf-test-server-side">Prompt 4 — Author the ATF test (server-side)<a class="headerlink" href="#prompt-4-author-the-atf-test-server-side" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Using the servicenow-fluent-companion skill, first read `now-sdk explain atf-guide`
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>and `now-sdk explain test-api` to ground the ATF Fluent API — don&#39;t rely on recall.
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>Author ONE server-side ATF test for the Creative Futures Fund app (scope x_snc_arts),
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>using the atf.server category:
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>Test &quot;Lodge and validate an EOI&quot;:
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>  1. impersonate a test applicant (create or impersonate a standard user)
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>  2. atf.server.recordInsert into x_snc_arts_eoi with a realistic EOI
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>     (title, idea, artform, indicative_amount) — assert record_successfully_inserted
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>  3. atf.server.recordValidation on that record — assert status defaulted to
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>     &quot;Received&quot; and the title persisted (encoded query) — assert record_validated
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>Do NOT use atf.form / atf.form_SP — the portal form is a custom widget, not a
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>ServiceNow-rendered form, so the UI steps don&#39;t target it; the server layer is the
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>correct test seam. Unique $id for the test and every step.
+</code></pre></div>
+<div class="admonition check">
+<p class="admonition-title">Done when</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> The ATF test exists in Fluent source.</li>
 </ul>
 </div>
 <div class="admonition warning">
