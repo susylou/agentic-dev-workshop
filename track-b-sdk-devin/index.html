@@ -938,12 +938,21 @@ ever refer to <code>arts-dev</code>.</p>
 </tbody>
 </table>
 <div class="admonition tip">
-<p class="admonition-title"><code>now-sdk explain</code> is the one to remember</p>
-<p>It's how you — and your AI assistant — get the <em>current</em> API for a topic instead of
-relying on the model's recall. <code>now-sdk explain atf-guide</code> and
-<code>now-sdk explain test-api</code> are used in Prompt 4 below for exactly that reason.
-Grounding beats guessing; it's why the prompts on this page tell the agent to read
-<code>explain</code> first.</p>
+<p class="admonition-title">Ground your AI tooling — don't let it work from memory</p>
+<p>A model's recall of ServiceNow will be patchy and out of date, and it won't tell you
+when it's guessing. Give it the real sources instead:</p>
+<ul>
+<li><strong><code>now-sdk explain &lt;topic&gt;</code></strong> for the SDK's own APIs. <code>now-sdk explain atf-guide</code>
+  and <code>now-sdk explain test-api</code> are used in Prompt 4 below for exactly that reason,
+  and it's why the prompts on this page tell the agent to read <code>explain</code> first.</li>
+<li><strong><a href="https://github.com/ServiceNow/ServiceNowDocs">https://github.com/ServiceNow/ServiceNowDocs</a></strong> for everything else on the
+  platform — the full documentation library as plain markdown, published by
+  ServiceNow for AI tooling to read. One branch per release family; use the one
+  matching your instance (<code>australia</code> is current).</li>
+</ul>
+<p>This is the single highest-value habit when building with the SDK. Tables, fields
+and API shapes that an ungrounded model invents look completely plausible right up
+until they fail.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Two different <code>install</code> commands — this catches everyone</p>
