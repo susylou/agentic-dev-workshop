@@ -85,4 +85,6 @@ above is new to you.
 - **ServiceNow SDK on npm** — <https://www.npmjs.com/package/@servicenow/sdk>
 - **ServiceNow SDK documentation** —
   <https://docs.servicenow.com/csh?topicname=servicenow-sdk-landing.html>
+- **ServiceNow product docs as markdown** —
+  <https://github.com/ServiceNow/ServiceNowDocs> — for grounding your AI tooling.
 - Everything else is on the [Resources & where next](resources.md) page.

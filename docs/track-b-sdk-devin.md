@@ -101,12 +101,21 @@ Grouped by what they actually touch — which is the thing worth learning first.
 |---|---|
 | `now-sdk install` *(alias `deploy`)* | Install or update your application on the instance |
 
-!!! tip "`now-sdk explain` is the one to remember"
-    It's how you — and your AI assistant — get the *current* API for a topic instead of
-    relying on the model's recall. `now-sdk explain atf-guide` and
-    `now-sdk explain test-api` are used in Prompt 4 below for exactly that reason.
-    Grounding beats guessing; it's why the prompts on this page tell the agent to read
-    `explain` first.
+!!! tip "Ground your AI tooling — don't let it work from memory"
+    A model's recall of ServiceNow will be patchy and out of date, and it won't tell you
+    when it's guessing. Give it the real sources instead:
+
+    - **`now-sdk explain <topic>`** for the SDK's own APIs. `now-sdk explain atf-guide`
+      and `now-sdk explain test-api` are used in Prompt 4 below for exactly that reason,
+      and it's why the prompts on this page tell the agent to read `explain` first.
+    - **<https://github.com/ServiceNow/ServiceNowDocs>** for everything else on the
+      platform — the full documentation library as plain markdown, published by
+      ServiceNow for AI tooling to read. One branch per release family; use the one
+      matching your instance (`australia` is current).
+
+    This is the single highest-value habit when building with the SDK. Tables, fields
+    and API shapes that an ungrounded model invents look completely plausible right up
+    until they fail.
 
 !!! warning "Two different `install` commands — this catches everyone"
     **`npm install`** fetches the SDK *tool's* own libraries. Internet → your laptop.

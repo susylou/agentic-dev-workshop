@@ -14,6 +14,11 @@
   (`npm install -g @servicenow/sdk`)
 - **ServiceNow SDK documentation** —
   <https://docs.servicenow.com/csh?topicname=servicenow-sdk-landing.html>
+- **ServiceNow product docs as markdown** —
+  <https://github.com/ServiceNow/ServiceNowDocs> — the full documentation library in
+  plain markdown, published by ServiceNow for AI tooling to read. One branch per release
+  family (`australia` is current). Point your AI assistant at this rather than letting it
+  work from memory.
 - **Community — Now Assist for Creator** — <https://devlink.sn/vibecode>
 - **Node.js** — <https://nodejs.org> · **Git** — <https://git-scm.com>
 
