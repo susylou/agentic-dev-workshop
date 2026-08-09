@@ -15,10 +15,117 @@ to generate versioned source, then installs it onto the instance. Four prompts,
 
 ## Setup
 
+Work through this in order. If you've never used the SDK before, this is the whole
+setup — there's nothing hidden elsewhere.
+
+### 1. What you need installed
+
+| | Version | Check it with | Get it |
+|---|---|---|---|
+| **Node.js** | 20.18.0 or newer | `node --version` | [nodejs.org](https://nodejs.org) |
+| **Git** | any current version | `git --version` | [git-scm.com](https://git-scm.com) |
+| **ServiceNow SDK** | latest | `now-sdk --version` | see step 2 |
+| **An AI-enabled IDE** | — | — | Claude Code, Copilot, Cursor, Devin — your choice |
+
+The SDK is a command-line tool, so it's **editor-agnostic**: bring whichever AI
+assistant you already use. Nothing here needs admin rights on your machine.
+
+### 2. Install the SDK
+
+```bash
+npm install -g @servicenow/sdk
+```
+
+Then confirm it's on your PATH:
+
+```bash
+now-sdk --version
+```
+
+### 3. Authenticate to your instance
+
+The SDK stores credentials against an **alias**, so you never retype them — and never
+put them in a prompt. Set this up in the terminal, once:
+
+```bash
+now-sdk auth --add https://your-instance.service-now.com --type basic --alias arts-dev
+```
+
+`--type` takes `basic` or `oauth`. The prompts later in this page all use the alias
+`arts-dev`, so use that name if you want to paste them unchanged.
+
+Managing aliases:
+
+```bash
+now-sdk auth --list              # what credentials do I have?
+now-sdk auth --use arts-dev      # make this one the default
+now-sdk auth --delete arts-dev   # remove it
+```
+
+!!! warning "Credentials go in the terminal, never in a prompt"
+    Anything you type into an AI assistant may be stored or sent off your machine.
+    The alias is the point: you authenticate once in the terminal, then prompts only
+    ever refer to `arts-dev`.
+
+### 4. Know the commands
+
+Grouped by what they actually touch — which is the thing worth learning first.
+
+**Connect**
+
+| Command | What it does |
+|---|---|
+| `now-sdk auth` | Configure, list, or select credentials for an instance |
+
+**Bring down from an instance**
+
+| Command | What it does |
+|---|---|
+| `now-sdk init` *(alias `create`)* | Start a new scoped app, apply a template, or bring an existing app down from an instance |
+| `now-sdk download <dir>` | Download application metadata from the instance |
+| `now-sdk transform` | Download XML records from an instance (or a local path) and convert them into Fluent source |
+| `now-sdk dependencies` | Download the dependencies declared in `now.config.json`, plus TypeScript types |
+
+**Work locally — these never touch ServiceNow**
+
+| Command | What it does |
+|---|---|
+| `now-sdk build` | Compile your source into app files and an installable package |
+| `now-sdk pack` | Zip a built app into an installable artifact |
+| `now-sdk clean` | Clean the output directory |
+| `now-sdk explain <topic>` | Show the SDK's own documentation for a topic |
+
+**Push up to an instance**
+
+| Command | What it does |
+|---|---|
+| `now-sdk install` *(alias `deploy`)* | Install or update your application on the instance |
+
+!!! tip "`now-sdk explain` is the one to remember"
+    It's how you — and your AI assistant — get the *current* API for a topic instead of
+    relying on the model's recall. `now-sdk explain atf-guide` and
+    `now-sdk explain test-api` are used in Prompt 4 below for exactly that reason.
+    Grounding beats guessing; it's why the prompts on this page tell the agent to read
+    `explain` first.
+
+!!! warning "Two different `install` commands — this catches everyone"
+    **`npm install`** fetches the SDK *tool's* own libraries. Internet → your laptop.
+    It never touches ServiceNow, and you run it once per project.
+
+    **`now-sdk install`** deploys *your app*. Your laptop → the instance.
+
+    Skipping `npm install` is the usual cause of a project that won't build or throws a
+    pile of lint errors.
+
+!!! note "What `transform` will and won't convert"
+    It converts the metadata types the SDK supports. Anything it doesn't support stays
+    as XML — which is still version-controlled and still installable, so the round trip
+    works either way. Don't expect every app to come back as `.now.ts`.
+
+### 5. Open the project
+
 1. Open your AI-enabled IDE with the project folder.
-2. Confirm your **auth alias** points at the workshop instance (these prompts use one
-   named `arts-dev`) — set it in the terminal, never in a prompt.
-3. Keep the **design brief + prototype** in the project (`./design`) so the agent ports
+2. Keep the **design brief + prototype** in the project (`./design`) so the agent ports
    the design, not a flat guess.
 
 ## The prompts

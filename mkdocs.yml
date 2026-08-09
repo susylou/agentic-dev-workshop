@@ -3,6 +3,12 @@ site_description: Building enterprise apps with AI — on the platform and off i
 
 theme:
   name: material
+  logo: assets/servicenow-logo.svg
+  favicon: assets/favicon.svg
+  # No Google Fonts. ServiceNow Sans can't be hotlinked (the CDN sends an
+  # empty Access-Control-Allow-Origin, so a browser blocks it cross-origin),
+  # and Roboto isn't ours — so use the system stack.
+  font: false
   features:
     - navigation.sections
     - navigation.top
@@ -12,17 +18,23 @@ theme:
     - search.suggest
   palette:
     - scheme: default
-      primary: teal
-      accent: teal
+      primary: custom
+      accent: custom
       toggle:
         icon: material/weather-night
         name: Switch to dark mode
     - scheme: slate
-      primary: teal
-      accent: teal
+      primary: custom
+      accent: custom
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode
+
+extra_css:
+  - stylesheets/servicenow.css
+
+extra_javascript:
+  - javascripts/tasklist-persist.js
 
 markdown_extensions:
   - admonition
@@ -42,6 +54,7 @@ markdown_extensions:
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.tasklist:
       custom_checkbox: true
+      clickable_checkbox: true
 
 nav:
   - Welcome: index.md
