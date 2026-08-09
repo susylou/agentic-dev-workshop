@@ -18,7 +18,7 @@
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../assets/favicon.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
@@ -41,13 +41,9 @@
     
     
       
-        
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-      
     
+    
+      <link rel="stylesheet" href="../stylesheets/servicenow.css">
     
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -65,7 +61,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -92,8 +88,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href=".." title="Agentic Powered Development — Workshop" class="md-header__button md-logo" aria-label="Agentic Powered Development — Workshop" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../assets/servicenow-logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -123,7 +118,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
@@ -133,7 +128,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
@@ -218,8 +213,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="Agentic Powered Development — Workshop" class="md-nav__button md-logo" aria-label="Agentic Powered Development — Workshop" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../assets/servicenow-logo.svg" alt="logo">
 
     </a>
     Agentic Powered Development — Workshop
@@ -486,6 +480,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Where next">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#keep-building-with-build-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keep building with Build Agent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#then-try" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Then try
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -553,6 +575,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Where next">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#keep-building-with-build-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keep building with Build Agent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#then-try" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Then try
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -577,19 +627,59 @@
 <ul>
 <li><strong>The prompts</strong> — every prompt in this guide is copy-ready; take them and run them on
   your own instance.</li>
-<li><strong>This guide</strong> — <em>(published URL placeholder)</em>.</li>
+<li><strong>This guide</strong> — <a href="https://susylou.github.io/agentic-dev-workshop/">https://susylou.github.io/agentic-dev-workshop/</a></li>
 </ul>
 <h2 id="reference">Reference<a class="headerlink" href="#reference" title="Permanent link">&para;</a></h2>
 <ul>
-<li>ServiceNow SDK documentation — <em>(placeholder)</em></li>
-<li>Build Agent in Studio — <em>(placeholder)</em></li>
-<li>Knowledge 2026 · Move beyond vibe coding — <em>(placeholder)</em></li>
+<li><strong>ServiceNow Developer site</strong> — <a href="https://developer.servicenow.com">https://developer.servicenow.com</a> — docs, tutorials,
+  and a free instance.</li>
+<li><strong>ServiceNow SDK on npm</strong> — <a href="https://www.npmjs.com/package/@servicenow/sdk">https://www.npmjs.com/package/@servicenow/sdk</a>
+  (<code>npm install -g @servicenow/sdk</code>)</li>
+<li><strong>ServiceNow SDK documentation</strong> —
+  <a href="https://docs.servicenow.com/csh?topicname=servicenow-sdk-landing.html">https://docs.servicenow.com/csh?topicname=servicenow-sdk-landing.html</a></li>
+<li><strong>Community — Now Assist for Creator</strong> — <a href="https://devlink.sn/vibecode">https://devlink.sn/vibecode</a></li>
+<li><strong>Node.js</strong> — <a href="https://nodejs.org">https://nodejs.org</a> · <strong>Git</strong> — <a href="https://git-scm.com">https://git-scm.com</a></li>
 </ul>
 <h2 id="where-next">Where next<a class="headerlink" href="#where-next" title="Permanent link">&para;</a></h2>
+<h3 id="keep-building-with-build-agent">Keep building with Build Agent<a class="headerlink" href="#keep-building-with-build-agent" title="Permanent link">&para;</a></h3>
+<p>You don't need today's workshop instance to carry on. Two routes:</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>How to get it</th>
+<th>Build Agent prompts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Personal Developer Instance (PDI)</strong></td>
+<td>Free from <a href="https://developer.servicenow.com">developer.servicenow.com</a>. Must be a <strong>Zurich or later</strong> instance.</td>
+<td><strong>25 per month</strong></td>
+</tr>
+<tr>
+<td><strong>Your company's sub-production instance</strong></td>
+<td>Ask your account team whether you're eligible for <strong>Now Assist for Creator</strong> — or install <strong>Build Agent (Trial)</strong> from the ServiceNow Store.</td>
+<td><strong>100 per month</strong> with the Trial</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">You'll need the admin role</p>
+<p>Build Agent requires <code>admin</code> on whichever instance you use. On a PDI that's you by
+default; on a company sub-prod instance you may need to ask.</p>
+</div>
+<h3 id="then-try">Then try<a class="headerlink" href="#then-try" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Try the <em>other</em> track on the same idea.</li>
+<li>The <em>other</em> track on the same idea — build it on-platform if you did it off, or the
+  reverse.</li>
 <li>Add an ATF test to something you already own.</li>
+<li>Take a prompt from this guide and point it at a problem from your own backlog.</li>
 </ul>
+<hr />
+<p><strong>Thanks for your time today.</strong> If you build something with Build Agent or the SDK,
+we'd genuinely like to see it — share it in the community space above, or tell us
+directly.</p>
 
 
 
@@ -649,6 +739,8 @@
     
     
       <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../javascripts/tasklist-persist.js"></script>
       
     
   </body>

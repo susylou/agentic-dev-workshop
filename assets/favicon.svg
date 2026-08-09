@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="92.5 3.7 20 20" width="32" height="32">
+  <!-- The "o" glyph lifted from the ServiceNow wordmark, on Infinite Blue.
+       viewBox is centred on the glyph (centre 102.5,13.7 / r 7.5). -->
+  <rect x="92.5" y="3.7" width="20" height="20" rx="4" fill="#032D42"/>
+  <path d="M102.586,6.259A7.5,7.5,0,0,0,97.419,19.21a1.481,1.481,0,0,0,1.926.1,5.355,5.355,0,0,1,6.394,0,1.485,1.485,0,0,0,1.937-.113,7.5,7.5,0,0,0-5.09-12.94M102.542,17.5a3.637,3.637,0,0,1-3.734-3.733,3.734,3.734,0,1,1,7.468,0,3.637,3.637,0,0,1-3.734,3.733" fill="#62d84e" fill-rule="evenodd"/>
+</svg>

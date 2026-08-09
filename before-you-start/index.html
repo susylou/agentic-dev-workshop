@@ -20,7 +20,7 @@
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../assets/favicon.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
@@ -43,13 +43,9 @@
     
     
       
-        
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-      
     
+    
+      <link rel="stylesheet" href="../stylesheets/servicenow.css">
     
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -67,7 +63,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -94,8 +90,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href=".." title="Agentic Powered Development — Workshop" class="md-header__button md-logo" aria-label="Agentic Powered Development — Workshop" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../assets/servicenow-logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -125,7 +120,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
@@ -135,7 +130,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
@@ -220,8 +215,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="Agentic Powered Development — Workshop" class="md-nav__button md-logo" aria-label="Agentic Powered Development — Workshop" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../assets/servicenow-logo.svg" alt="logo">
 
     </a>
     Agentic Powered Development — Workshop
@@ -341,6 +335,45 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="For the Build Agent lab">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-servicenow-studio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is ServiceNow Studio?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-build-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is Build Agent?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-into-studio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting into Studio
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -555,6 +588,45 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="For the Build Agent lab">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-servicenow-studio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is ServiceNow Studio?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-build-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is Build Agent?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-into-studio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting into Studio
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -598,28 +670,78 @@
 
 <h1 id="before-you-start">Before you start<a class="headerlink" href="#before-you-start" title="Permanent link">&para;</a></h1>
 <p>A few things to have ready. Nothing here needs admin rights on your own machine.</p>
+<div class="admonition info">
+<p class="admonition-title">Whichever persona you came as</p>
+<p>The deck frames this as <strong>Pro developer</strong>, <strong>Low-code dev</strong> and <strong>Business
+User/SME</strong> building together. That split holds here too: the <strong>Build Agent lab
+runs entirely in the browser</strong> with nothing to install, and the <strong>off-platform SDK
+build</strong> is the pro-dev lane. You don't need to do both — and if you get stuck,
+grab one of the gurus in the room.</p>
+</div>
 <h2 id="for-everyone">For everyone<a class="headerlink" href="#for-everyone" title="Permanent link">&para;</a></h2>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Access to your workshop instance</strong> — URL, username, password.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>A modern browser</strong> — for the ServiceNow UI and this guide.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <strong>Access to your workshop instance</strong> — URL, username, password.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <strong>A modern browser</strong> — for the ServiceNow UI and this guide.</li>
 </ul>
 <h2 id="for-the-build-agent-lab">For the Build Agent lab<a class="headerlink" href="#for-the-build-agent-lab" title="Permanent link">&para;</a></h2>
 <p>Nothing to install — it's all in the browser.</p>
+<h3 id="what-is-servicenow-studio">What is ServiceNow Studio?<a class="headerlink" href="#what-is-servicenow-studio" title="Permanent link">&para;</a></h3>
+<p>Studio is the modern development environment on the ServiceNow AI Platform. It is where
+ServiceNow creators build applications: tables, flows, UI, and everything in between.
+Unlike a traditional development environment it supports a drag-and-drop experience and
+more of a <em>what you see is what you get</em> approach. Think of it as your workbench for
+today's lab. Everything you build will live in Studio.</p>
+<h3 id="what-is-build-agent">What is Build Agent?<a class="headerlink" href="#what-is-build-agent" title="Permanent link">&para;</a></h3>
+<p>Build Agent is an agentic AI assistant that lives inside Studio. You will see it through
+the <strong>Now Assist</strong> experience in Studio. You describe what you want in plain English, and
+Build Agent creates the application components for you — tables, business rules, UI
+pages, automation, sample data, the works. It knows how ServiceNow fits together, so it
+builds things the platform way.</p>
+<h3 id="getting-into-studio">Getting into Studio<a class="headerlink" href="#getting-into-studio" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>Log in</strong> to your workshop instance with the URL and credentials you were given.</p>
+</li>
+<li>
+<p><strong>Open Studio</strong> — click <strong>All</strong> in the top navigator, type <code>ServiceNow Studio</code>, and
+   press Enter.</p>
+<p><img alt="Typing &quot;ServiceNow Studio&quot; into the filter navigator" src="../images/servicenowStudio.avif" width="760" /></p>
+</li>
+<li>
+<p><strong>Check it opened</strong> — the URL will contain <code>sn_glider_app/servicenow_studio.do</code>.</p>
+</li>
+<li>
+<p><strong>Wait for the Build Agent</strong> — the Now Assist panel opens on the right with a welcome
+   message. Give it a moment; it isn't instant.</p>
+<p><img alt="ServiceNow Studio with the Now Assist panel showing the Build Agent welcome" src="../images/servicenowStudioBA.avif" width="760" /></p>
+</li>
+</ol>
+<div class="admonition check">
+<p class="admonition-title">Done when</p>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Log in to your instance and open <strong>ServiceNow Studio</strong>
-      (All → type "ServiceNow Studio").</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Confirm the <strong>Now Assist</strong> panel shows the <strong>Build Agent</strong> welcome message.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Studio is open and the URL contains <code>servicenow_studio.do</code>.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> The Now Assist panel shows the Build Agent welcome message.</li>
 </ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">If the panel doesn't appear</p>
+<p>Click the <strong>Open Build Agent</strong> icon in the Studio toolbar, lower right.</p>
+<p><img alt="The Open Build Agent icon in the Studio toolbar" src="../images/openBA.avif" width="420" /></p>
+</div>
 <h2 id="for-the-off-platform-sdk-build">For the off-platform (SDK) build<a class="headerlink" href="#for-the-off-platform-sdk-build" title="Permanent link">&para;</a></h2>
 <p>Only needed if you want to follow the off-platform build hands-on.</p>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Bring your own AI-enabled IDE</strong> — Claude Code, Copilot, Cursor, or Devin.
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <strong>Bring your own AI-enabled IDE</strong> — Claude Code, Copilot, Cursor, or Devin.
       The SDK is editor-agnostic; any of these is fine.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Node.js</strong> and <strong>Git</strong> installed.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>ServiceNow SDK</strong> (<code>@servicenow/sdk</code>) available (<code>now-sdk</code> on your PATH).</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> An <strong>auth alias</strong> to your instance set up in your terminal
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <strong>Node.js 20.18.0+</strong> (<code>node --version</code>) and <strong>Git</strong> (<code>git --version</code>).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <strong>ServiceNow SDK</strong> installed — <code>npm install -g @servicenow/sdk</code>,
+      then check with <code>now-sdk --version</code>.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> An <strong>auth alias</strong> to your instance set up in your terminal
       (we set this in the terminal, never in a prompt).</li>
 </ul>
+<p>Full step-by-step — versions, install, authentication and the command reference — is on
+the <a href="../track-b-sdk-devin/">Off-platform build (SDK)</a> page. Start there if any of the
+above is new to you.</p>
 <div class="admonition tip">
 <p class="admonition-title">Watching is fine</p>
 <p>The off-platform build takes ~40 minutes end to end. If you'd rather watch than
@@ -628,7 +750,10 @@ here to take away.</p>
 </div>
 <h2 id="links-for-later">Links for later<a class="headerlink" href="#links-for-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>ServiceNow SDK docs: <em>(placeholder)</em></li>
+<li><strong>ServiceNow SDK on npm</strong> — <a href="https://www.npmjs.com/package/@servicenow/sdk">https://www.npmjs.com/package/@servicenow/sdk</a></li>
+<li><strong>ServiceNow SDK documentation</strong> —
+  <a href="https://docs.servicenow.com/csh?topicname=servicenow-sdk-landing.html">https://docs.servicenow.com/csh?topicname=servicenow-sdk-landing.html</a></li>
+<li>Everything else is on the <a href="../resources/">Resources &amp; where next</a> page.</li>
 </ul>
 
 
@@ -689,6 +814,8 @@ here to take away.</p>
     
     
       <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../javascripts/tasklist-persist.js"></script>
       
     
   </body>

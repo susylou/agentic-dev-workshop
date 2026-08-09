@@ -20,7 +20,7 @@
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../assets/favicon.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
@@ -43,13 +43,9 @@
     
     
       
-        
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-      
     
+    
+      <link rel="stylesheet" href="../stylesheets/servicenow.css">
     
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -67,7 +63,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -94,8 +90,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href=".." title="Agentic Powered Development — Workshop" class="md-header__button md-logo" aria-label="Agentic Powered Development — Workshop" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../assets/servicenow-logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -125,7 +120,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
@@ -135,7 +130,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
@@ -220,8 +215,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="Agentic Powered Development — Workshop" class="md-nav__button md-logo" aria-label="Agentic Powered Development — Workshop" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../assets/servicenow-logo.svg" alt="logo">
 
     </a>
     Agentic Powered Development — Workshop
@@ -431,10 +425,60 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-it-needs-to-cover" class="md-nav__link">
+  <a href="#build-agent-work-github" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What it needs to cover
+        Build Agent work → GitHub
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Build Agent work → GitHub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#before-you-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before you start
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#link-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Link it
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sdk-work-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SDK work → GitHub
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-ends-up-in-the-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What ends up in the repository
       
     </span>
   </a>
@@ -503,10 +547,60 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-it-needs-to-cover" class="md-nav__link">
+  <a href="#build-agent-work-github" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What it needs to cover
+        Build Agent work → GitHub
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Build Agent work → GitHub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#before-you-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before you start
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#link-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Link it
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sdk-work-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SDK work → GitHub
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-ends-up-in-the-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What ends up in the repository
       
     </span>
   </a>
@@ -531,19 +625,128 @@
 
 
 <h1 id="source-control-github">Source control &amp; GitHub<a class="headerlink" href="#source-control-github" title="Permanent link">&para;</a></h1>
-<h2 id="what-it-needs-to-cover">What it needs to cover<a class="headerlink" href="#what-it-needs-to-cover" title="Permanent link">&para;</a></h2>
+<p>How to put your work into GitHub. The method depends on which track you built with.</p>
+<h2 id="build-agent-work-github">Build Agent work → GitHub<a class="headerlink" href="#build-agent-work-github" title="Permanent link">&para;</a></h2>
+<p>Studio links a scoped application directly to a Git repository.</p>
+<h3 id="before-you-start">Before you start<a class="headerlink" href="#before-you-start" title="Permanent link">&para;</a></h3>
 <ul>
-<li>How each track meets Git:<ul>
-<li><strong>SDK (Fluent)</strong> → <code>.now.ts</code> source lives in Git; the platform is compiled output.</li>
-<li><strong>Build Agent + Studio</strong> → the platform is the source; Git holds serialised <strong>XML</strong>
-  update records.</li>
-<li>They <strong>don't meet in the middle</strong>.</li>
+<li><strong>Admin role</strong> on the instance.</li>
+<li>A <strong>dedicated Git repository</strong> for this application — each application needs its own.</li>
+<li>Initialise the repo with a README so it has a default branch before you link.</li>
+<li>A <strong>personal access token</strong> with read and write access to that repository, saved as a
+  <strong>Basic Auth</strong> credential record (username + token as the password). Use an SSH private
+  key credential instead if you're linking over SSH.</li>
+<li>The instance needs network access to the repository. If it's behind a firewall, you'll
+  need a MID Server.</li>
+<li>Add the email address you use for Git commits to your <strong>sys_user</strong> record, so commits
+  are attributed to you.</li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Non-production only</p>
+<p>Source control integration doesn't support linking an application on a production
+instance. To install applications on production, use the application repository, an
+update set, or ServiceNow Studio.</p>
+</div>
+<h3 id="link-it">Link it<a class="headerlink" href="#link-it" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Go to <strong>All</strong> → <strong>App Engine</strong> → <strong>ServiceNow Studio</strong>.</li>
+<li>Select your application in the file navigator.</li>
+<li>Select <strong>App details</strong> to open it in the canvas.</li>
+<li>Select <strong>Source control</strong> → <strong>Link to source control</strong>.</li>
+<li>
+<p>Fill in the connection details:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>What to enter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Network protocol</strong></td>
+<td>HTTPS or SSH</td>
+</tr>
+<tr>
+<td><strong>URL</strong></td>
+<td>The repository URL</td>
+</tr>
+<tr>
+<td><strong>Branch</strong></td>
+<td>Defaults to <code>main</code></td>
+</tr>
+<tr>
+<td><strong>Credential</strong></td>
+<td>Basic Auth credential for HTTPS, SSH private key for SSH</td>
+</tr>
+<tr>
+<td><strong>Default email</strong></td>
+<td>Fallback committer address when a user has no email on their record</td>
+</tr>
+<tr>
+<td><strong>MID Server Name</strong></td>
+<td>Only if the repository is behind a firewall</td>
+</tr>
+<tr>
+<td><strong>Commit Comment</strong></td>
+<td>Optional description</td>
+</tr>
+</tbody>
+</table>
 </li>
-<li>Tracing a change back to the work: branch / PR / commit (off-platform) vs. change
-  request (on-platform).</li>
-<li>How far the promotion story goes (dev → test → prod) and what's actually proven.</li>
-</ul>
+<li>
+<p>Select <strong>Link to source control</strong>. The instance validates the connection and confirms.</p>
+</li>
+</ol>
+<p>Once linked, use <strong>Source control</strong> in Studio to commit local changes, pull remote
+changes, create branches, and switch between them.</p>
+<h2 id="sdk-work-github">SDK work → GitHub<a class="headerlink" href="#sdk-work-github" title="Permanent link">&para;</a></h2>
+<p>An SDK project is already files on your machine, so it's ordinary Git.</p>
+<ol>
+<li>
+<p>From the project folder:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>init
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git<span class="w"> </span>branch<span class="w"> </span>-M<span class="w"> </span>main
+</code></pre></div>
+</li>
+<li>
+<p>Add a <code>.gitignore</code> so you don't commit dependencies or build output:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>node_modules/
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>dist/
+</code></pre></div>
+</li>
+<li>
+<p>Commit and push to your repository:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git<span class="w"> </span>add<span class="w"> </span>.
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Initial commit&quot;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>https://github.com/&lt;you&gt;/&lt;repo&gt;.git
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>main
+</code></pre></div>
+</li>
+</ol>
+<p>From there it's a normal Git workflow — branches, pull requests, and history all behave
+as they would on any other codebase.</p>
+<h2 id="what-ends-up-in-the-repository">What ends up in the repository<a class="headerlink" href="#what-ends-up-in-the-repository" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Track</th>
+<th>What you'll see</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SDK (Fluent)</strong></td>
+<td>Your Fluent source files, plus XML for any metadata the SDK doesn't express as Fluent.</td>
+</tr>
+<tr>
+<td><strong>Build Agent + Studio</strong></td>
+<td>The application serialised as ServiceNow source-control XML, alongside <code>sn_source_control.properties</code> and <code>checksum.txt</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>Both are version-controlled and both can be installed onto another instance — they just
+look quite different when you open the repository.</p>
 
 
 
@@ -603,6 +806,8 @@
     
     
       <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../javascripts/tasklist-persist.js"></script>
       
     
   </body>

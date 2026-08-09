@@ -1,0 +1,186 @@
+/* ============================================================
+   ServiceNow brand skin for the workshop lab site.
+
+   Palette lifted verbatim from the SC field guide
+   (e2eawf-field-guide.html) so this site reads as a sibling:
+     Infinite Blue  #032D42   Wasabi Green  #63DF4E
+     Slate          #2A4F62   Bright Blue   #52B8FF
+
+   Approach: brand the CHROME, keep the reading surface calm.
+   Green is a signal colour (rules, indicators), never body text —
+   #63DF4E on white is ~1.7:1 and unreadable as type.
+   ============================================================ */
+
+:root {
+  --sn-infinite-blue:      #032D42;
+  --sn-infinite-blue-deep: #021E2C;
+  --sn-slate:              #2A4F62;
+  --sn-wasabi:             #63DF4E;
+  --sn-bright-blue:        #52B8FF;
+}
+
+/* ---------- Light scheme (the follow-along default) ---------- */
+
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color:        var(--sn-infinite-blue);
+  --md-primary-fg-color--light: var(--sn-slate);
+  --md-primary-fg-color--dark:  var(--sn-infinite-blue-deep);
+  --md-primary-bg-color:        #ffffff;
+  --md-primary-bg-color--light: rgba(255, 255, 255, .7);
+
+  /* Links: Slate, not green — green fails contrast on white. */
+  --md-accent-fg-color:         var(--sn-slate);
+  --md-typeset-a-color:         var(--sn-slate);
+}
+
+/* ---------- Dark scheme ---------- */
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color:        var(--sn-infinite-blue-deep);
+  --md-primary-fg-color--light: var(--sn-slate);
+  --md-primary-fg-color--dark:  #01151F;
+  --md-primary-bg-color:        #ffffff;
+
+  --md-default-bg-color:        var(--sn-infinite-blue);
+  --md-accent-fg-color:         var(--sn-wasabi);
+
+  /* On Infinite Blue, green is legible — use it. */
+  --md-typeset-a-color:         var(--sn-wasabi);
+}
+
+/* ---------- The banner ---------- */
+
+/* Wasabi rule under the header — the one bit of brand green that
+   carries at a glance, in both schemes. */
+.md-header {
+  border-bottom: 3px solid var(--sn-wasabi);
+  box-shadow: none;
+}
+
+/* Wordmark is 132x20 — let it keep its ratio rather than being
+   squared off by Material's default logo sizing. */
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  width: auto;
+  height: 1.1rem;
+}
+
+/* Site title sits beside the wordmark, so keep it quieter than the
+   logo — this is a subtitle, not a second brand. */
+.md-header__title {
+  font-weight: 400;
+  letter-spacing: .01em;
+}
+
+.md-header__topic:first-child {
+  font-weight: 400;
+}
+
+/* Search field on the dark bar */
+.md-search__form {
+  background-color: rgba(255, 255, 255, .12);
+}
+
+.md-search__form:hover {
+  background-color: rgba(255, 255, 255, .2);
+}
+
+/* ---------- Navigation ---------- */
+
+/* Active page: green marker + weight change, so the indicator isn't
+   colour-alone (green on white is too low-contrast to carry it). */
+.md-nav__link--active,
+.md-nav__item .md-nav__link--active {
+  font-weight: 600;
+}
+
+.md-nav__item .md-nav__link--active::before {
+  content: "";
+  position: absolute;
+  left: -.6rem;
+  top: .35em;
+  bottom: .35em;
+  width: 3px;
+  border-radius: 2px;
+  background: var(--sn-wasabi);
+}
+
+.md-nav__item .md-nav__link {
+  position: relative;
+}
+
+/* Section labels in the sidebar */
+.md-nav__title {
+  color: var(--sn-slate);
+}
+
+/* ---------- Content accents ---------- */
+
+/* Prompt/code blocks are the thing people copy all workshop —
+   give them a little more presence than Material's default. */
+.md-typeset pre > code {
+  border-radius: .3rem;
+}
+
+.md-typeset .md-code__content {
+  border-radius: .3rem;
+}
+
+/* "Done when" / "If it breaks" callouts read better with the brand
+   greens and ambers than Material's stock blues. */
+.md-typeset .admonition.success,
+.md-typeset details.success {
+  border-color: var(--sn-wasabi);
+}
+
+.md-typeset .success > .admonition-title,
+.md-typeset .success > summary {
+  background-color: rgba(99, 223, 78, .1);
+}
+
+.md-typeset .success > .admonition-title::before,
+.md-typeset .success > summary::before {
+  background-color: #2E8B1F;
+}
+
+/* Tables: header row in brand, matching the field guide's treatment. */
+.md-typeset table:not([class]) th {
+  background-color: var(--sn-infinite-blue);
+  color: #ffffff;
+  font-weight: 500;
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) th {
+  background-color: var(--sn-slate);
+}
+
+/* ---------- "Done when" checklists ---------- */
+
+/* These are clickable and persisted (see javascripts/tasklist-persist.js),
+   so they need to look interactive and give feedback when ticked. */
+.md-typeset .task-list-control {
+  cursor: pointer;
+}
+
+.md-typeset .task-list-item:has(input:checked) {
+  color: var(--md-default-fg-color--light);
+}
+
+.md-typeset .task-list-control input:checked + .task-list-indicator::before {
+  background-color: #2E8B1F;
+}
+
+[data-md-color-scheme="slate"]
+  .md-typeset .task-list-control input:checked + .task-list-indicator::before {
+  background-color: var(--sn-wasabi);
+}
+
+/* ---------- Footer ---------- */
+
+.md-footer {
+  background-color: var(--sn-infinite-blue-deep);
+}
+
+.md-footer-meta {
+  background-color: #01151F;
+}
