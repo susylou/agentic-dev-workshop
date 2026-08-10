@@ -974,6 +974,16 @@ works either way. Don't expect every app to come back as <code>.now.ts</code>.</
 <li>Keep the <strong>design brief + prototype</strong> in the project (<code>./design</code>) so the agent ports
    the design, not a flat guess.</li>
 </ol>
+<div class="admonition info">
+<p class="admonition-title">The design being ported</p>
+<p><strong><a href="../prototypes/arts-eoi.html" target="_blank">Open the Creative Futures Fund prototype <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3m-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2z"/></svg></span></a></strong></p>
+<p>This is the wireframe the prompts below port onto Service Portal — a static HTML
+page, no backend. Have a click through it: the discipline tiles preselect the
+artform, the assistant panel drafts a summary as you type, and lodging an EOI adds
+a row to the list.</p>
+<p>A prototype plus a written design brief is what carries art direction across to the
+build. A single text prompt can't — you get something that works and looks flat.</p>
+</div>
 <h2 id="the-prompts">The prompts<a class="headerlink" href="#the-prompts" title="Permanent link">&para;</a></h2>
 <h3 id="prompt-1-scaffold-app-eoi-table">Prompt 1 — Scaffold app + EOI table<a class="headerlink" href="#prompt-1-scaffold-app-eoi-table" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Using the ServiceNow SDK (Fluent) and the servicenow-fluent-companion skill,
@@ -1006,6 +1016,8 @@ works either way. Don't expect every app to come back as <code>.now.ts</code>.</
 </ul>
 </div>
 <h3 id="prompt-2-service-portal-with-the-clickable-record-link">Prompt 2 — Service Portal (with the clickable record link)<a class="headerlink" href="#prompt-2-service-portal-with-the-clickable-record-link" title="Permanent link">&para;</a></h3>
+<p>Compare against the <a href="../prototypes/arts-eoi.html" target="_blank">prototype</a> as this one
+builds — everything the prompt describes is on that page.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Build a Service Portal for this app, porting the design faithfully from ./design
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>(prototype.html + design-brief.md): cool teal/coral/gold &quot;gallery&quot; palette, serif
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>display, the spotlit framed-canvas hero with its plaque. Uniquely prefix every portal
