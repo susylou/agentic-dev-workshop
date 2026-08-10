@@ -137,6 +137,17 @@ Grouped by what they actually touch — which is the thing worth learning first.
 2. Keep the **design brief + prototype** in the project (`./design`) so the agent ports
    the design, not a flat guess.
 
+!!! info "The design being ported"
+    **[Open the Creative Futures Fund prototype :material-open-in-new:](prototypes/arts-eoi.html){ target="_blank" }**
+
+    This is the wireframe the prompts below port onto Service Portal — a static HTML
+    page, no backend. Have a click through it: the discipline tiles preselect the
+    artform, the assistant panel drafts a summary as you type, and lodging an EOI adds
+    a row to the list.
+
+    A prototype plus a written design brief is what carries art direction across to the
+    build. A single text prompt can't — you get something that works and looks flat.
+
 ## The prompts
 
 ### Prompt 1 — Scaffold app + EOI table
@@ -170,6 +181,9 @@ any OOTB table (incident/case/request). This app is deliberately self-contained.
     - [ ] The app scaffolds and the table + fields exist in Fluent source.
 
 ### Prompt 2 — Service Portal (with the clickable record link)
+
+Compare against the [prototype](prototypes/arts-eoi.html){ target="_blank" } as this one
+builds — everything the prompt describes is on that page.
 
 ```text
 Build a Service Portal for this app, porting the design faithfully from ./design

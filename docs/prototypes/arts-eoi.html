@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Creative Futures Fund — express your interest</title>
+<style>
+  /* ============================================================
+     CREATIVE FUTURES FUND — expression-of-interest prototype
+     Off-platform aesthetic reference for the Service Portal port.
+     Sibling to the Front Door prototype: same skeleton, own identity.
+     "Gallery" palette (cool teal + coral + gold), serif display.
+     Fonts are system stacks (offline-safe for live delivery);
+     Georgia ships on every Windows/Mac box.
+     Deliberately NO linked OOTB record — the EOI is its own record.
+     ============================================================ */
+
+  :root{
+    /* --- palette: "a work coming into the light on a gallery wall" --- */
+    --brand:      #0C4A5A;   /* deep petrol-teal — considered, official */
+    --brand-2:    #159AAD;   /* bright teal — gradients, focus */
+    --accent:     #FF6B5C;   /* coral — the creative pop */
+    --accent-2:   #FFC24B;   /* warm gold — the spotlight */
+    --ink:        #08252E;   /* near-black teal — footer, deep text */
+    --surface:    #F3F7F8;   /* cool paper (NOT white, NOT the warm sibling) */
+    --card:       #FFFFFF;
+    --line:       #DCE8EA;
+    --text:       #12303A;
+    --muted:      #5E7A82;
+
+    /* status semantics — the EOI lifecycle */
+    --s-received: #2E7CE4;   /* blue  */
+    --s-review:   #E0952B;   /* amber */
+    --s-invited:  #17A874;   /* green — the happy one */
+    --s-closed:   #8698A0;   /* muted */
+
+    /* type */
+    --font-display:Georgia,"Iowan Old Style","Palatino Linotype","Times New Roman",serif;
+    --font-body:"Segoe UI Variable Text","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+    --font-mono:"Cascadia Code","Consolas",ui-monospace,"SFMono-Regular",Menlo,monospace;
+
+    --radius: 20px;
+    --radius-sm: 12px;
+    --shadow-sm: 0 2px 8px rgba(8,37,46,.06);
+    --shadow-md: 0 18px 40px -18px rgba(12,74,90,.35);
+    --shadow-lg: 0 40px 90px -30px rgba(12,74,90,.5);
+    --maxw: 1120px;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    font-family:var(--font-body);
+    color:var(--text);
+    background:var(--surface);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{ color:inherit; }
+  h1,h2,h3{ font-family:var(--font-display); line-height:1.12; letter-spacing:-.01em; margin:0; font-weight:700; }
+
+  .eoi-shell{ max-width:var(--maxw); margin:0 auto; padding:0 24px; }
+
+  .eoi-eyebrow{
+    font-family:var(--font-mono);
+    font-size:.72rem; letter-spacing:.26em; text-transform:uppercase;
+    color:var(--brand-2); font-weight:600;
+  }
+
+  /* ---------------- header ---------------- */
+  .eoi-header{
+    position:sticky; top:0; z-index:40;
+    backdrop-filter:saturate(140%) blur(10px);
+    background:rgba(243,247,248,.82);
+    border-bottom:1px solid var(--line);
+  }
+  .eoi-header-in{
+    max-width:var(--maxw); margin:0 auto; padding:14px 24px;
+    display:flex; align-items:center; gap:20px;
+  }
+  .eoi-brand{ display:flex; align-items:center; gap:11px; font-family:var(--font-display); font-weight:700; font-size:1.08rem; }
+  .eoi-mark{
+    width:34px; height:34px; border-radius:9px;
+    background:linear-gradient(150deg,var(--brand),var(--brand-2) 65%,var(--accent-2));
+    display:grid; place-items:center; box-shadow:var(--shadow-sm);
+  }
+  .eoi-nav{ margin-left:auto; display:flex; gap:26px; align-items:center; }
+  .eoi-nav a{ text-decoration:none; color:var(--muted); font-size:.94rem; font-weight:500; font-family:var(--font-body); }
+  .eoi-nav a:hover{ color:var(--text); }
+  .eoi-avatar{
+    width:36px; height:36px; border-radius:50%;
+    background:linear-gradient(150deg,var(--accent),var(--brand-2));
+    display:grid; place-items:center; color:#fff; font-weight:600; font-size:.85rem; font-family:var(--font-body);
+  }
+
+  /* ---------------- hero ---------------- */
+  .eoi-hero{ position:relative; overflow:hidden; }
+  .eoi-hero::before{ /* warm spotlight spill from above-right */
+    content:""; position:absolute; inset:-20% -10% auto auto;
+    width:760px; height:760px; right:-160px; top:-260px;
+    background:radial-gradient(closest-side, rgba(255,194,75,.5), rgba(255,107,92,.2) 46%, transparent 72%);
+    filter:blur(8px); pointer-events:none;
+    animation:breathe 9s ease-in-out infinite;
+  }
+  @keyframes breathe{ 0%,100%{ transform:scale(1); opacity:.85; } 50%{ transform:scale(1.06); opacity:1; } }
+
+  .eoi-hero-in{
+    max-width:var(--maxw); margin:0 auto; padding:74px 24px 60px;
+    display:grid; grid-template-columns:1.15fr .85fr; gap:44px; align-items:center;
+  }
+  .eoi-hero h1{ font-size:clamp(2.4rem,5vw,3.8rem); margin:.5rem 0 .2rem; }
+  .eoi-hero h1 .glow{
+    background:linear-gradient(100deg,var(--brand),var(--brand-2) 45%,var(--accent));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .eoi-lede{ font-size:1.12rem; color:#3f5b63; max-width:42ch; margin:.7rem 0 1.4rem; }
+
+  /* the "one-line idea" field */
+  .eoi-ask{
+    display:flex; gap:8px; align-items:center;
+    background:var(--card); border:1px solid var(--line);
+    border-radius:16px; padding:8px 8px 8px 16px;
+    box-shadow:var(--shadow-md); max-width:540px;
+    transition:box-shadow .2s, border-color .2s;
+  }
+  .eoi-ask:focus-within{ border-color:var(--brand-2); box-shadow:var(--shadow-lg); }
+  .eoi-ask input{
+    flex:1; border:0; outline:0; background:transparent;
+    font-family:var(--font-body); font-size:1rem; color:var(--text); padding:8px 0;
+  }
+  .eoi-ask input::placeholder{ color:#93a8ae; }
+
+  .eoi-btn{
+    border:0; cursor:pointer; font-family:var(--font-body); font-weight:600;
+    border-radius:12px; padding:12px 20px; font-size:.98rem;
+    background:linear-gradient(135deg,var(--brand),var(--brand-2));
+    color:#fff; box-shadow:var(--shadow-md);
+    transition:transform .15s ease, box-shadow .2s ease, filter .2s;
+    white-space:nowrap;
+  }
+  .eoi-btn:hover{ transform:translateY(-1px); filter:brightness(1.06); }
+  .eoi-btn:active{ transform:translateY(0); }
+  .eoi-btn.ghost{
+    background:transparent; color:var(--brand); box-shadow:none;
+    border:1px solid var(--line);
+  }
+  .eoi-btn.ghost:hover{ border-color:var(--brand-2); }
+
+  .eoi-hint{ margin-top:12px; font-size:.85rem; color:var(--muted); }
+
+  /* ---- the signature: a spotlit framed canvas + gallery plaque ---- */
+  .eoi-frame-wrap{ display:grid; place-items:center; position:relative; }
+  .eoi-frame-wrap::before{ /* the spotlight cone hitting the wall */
+    content:""; position:absolute; top:-40px; left:50%; transform:translateX(-50%);
+    width:340px; height:420px;
+    background:radial-gradient(ellipse 60% 55% at 50% 20%, rgba(255,194,75,.4), transparent 70%);
+    filter:blur(6px); pointer-events:none;
+    animation:breathe 7s ease-in-out infinite;
+  }
+  .eoi-frame{
+    position:relative; width:250px; height:312px; padding:14px;
+    border-radius:8px;
+    background:linear-gradient(155deg,var(--accent-2),#E8A62E 55%,#B87B18);  /* gold frame */
+    box-shadow:0 50px 80px -30px rgba(12,74,90,.55), inset 0 2px 6px rgba(255,255,255,.5);
+    animation:rise 900ms cubic-bezier(.2,.8,.2,1) both;
+  }
+  .eoi-canvas{ /* the "work in progress" inside the frame */
+    position:relative; width:100%; height:100%; border-radius:3px; overflow:hidden;
+    background:
+      radial-gradient(circle at 30% 28%, rgba(255,107,92,.9), transparent 45%),
+      radial-gradient(circle at 72% 66%, rgba(21,154,173,.85), transparent 48%),
+      radial-gradient(circle at 55% 40%, rgba(255,194,75,.7), transparent 40%),
+      linear-gradient(160deg,#0C4A5A,#12707F);
+    background-size:200% 200%;
+    box-shadow:inset 0 0 40px rgba(8,37,46,.35);
+    animation:shift 12s ease-in-out infinite;
+  }
+  @keyframes shift{ 0%,100%{ background-position:0% 0%; } 50%{ background-position:100% 100%; } }
+  .eoi-plaque{
+    margin-top:16px; background:var(--card); border:1px solid var(--line);
+    border-radius:10px; padding:9px 14px; box-shadow:var(--shadow-sm);
+    text-align:center; animation:rise 900ms cubic-bezier(.2,.8,.2,1) .15s both;
+  }
+  .eoi-plaque .ref{ font-family:var(--font-mono); font-size:.74rem; letter-spacing:.1em; color:var(--brand); font-weight:600; }
+  .eoi-plaque .cap{ font-family:var(--font-display); font-style:italic; font-size:.92rem; color:var(--muted); margin-top:2px; }
+  @keyframes rise{ from{ transform:translateY(24px); opacity:0; } to{ transform:translateY(0); opacity:1; } }
+
+  /* ---------------- how it works (a real 3-step sequence) ---------------- */
+  .eoi-how{ border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:rgba(255,255,255,.5); }
+  .eoi-how-in{
+    max-width:var(--maxw); margin:0 auto; padding:26px 24px;
+    display:grid; grid-template-columns:repeat(3,1fr); gap:22px;
+  }
+  .eoi-step{ display:flex; gap:14px; align-items:flex-start; }
+  .eoi-step-n{
+    flex:none; width:34px; height:34px; border-radius:50%;
+    display:grid; place-items:center; font-family:var(--font-mono); font-weight:700; font-size:.9rem;
+    color:var(--brand); background:linear-gradient(150deg,rgba(21,154,173,.16),rgba(255,194,75,.22));
+    border:1px solid var(--line);
+  }
+  .eoi-step h3{ font-size:1.02rem; margin:2px 0 3px; font-family:var(--font-body); font-weight:700; }
+  .eoi-step p{ margin:0; font-size:.88rem; color:var(--muted); }
+  .eoi-step .when{ font-family:var(--font-mono); font-size:.7rem; letter-spacing:.08em; color:var(--brand-2); text-transform:uppercase; }
+
+  /* ---------------- discipline tiles ---------------- */
+  .eoi-section{ padding:58px 0 12px; }
+  .eoi-section h2{ font-size:clamp(1.6rem,3.2vw,2.2rem); margin:.4rem 0 .3rem; }
+  .eoi-section .eoi-sub{ color:var(--muted); margin:0 0 26px; max-width:60ch; }
+
+  .eoi-cats{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+  .eoi-cat{
+    text-align:left; cursor:pointer; background:var(--card);
+    border:1px solid var(--line); border-radius:var(--radius); padding:22px 20px;
+    box-shadow:var(--shadow-sm); transition:transform .18s ease, box-shadow .2s ease, border-color .2s;
+    animation:rise 700ms cubic-bezier(.2,.8,.2,1) both;
+  }
+  .eoi-cat:nth-child(2){ animation-delay:.06s; }
+  .eoi-cat:nth-child(3){ animation-delay:.12s; }
+  .eoi-cat:nth-child(4){ animation-delay:.18s; }
+  .eoi-cat:hover{ transform:translateY(-4px); box-shadow:var(--shadow-md); border-color:transparent; }
+  .eoi-cat.active{ border-color:var(--brand-2); box-shadow:var(--shadow-md); }
+  .eoi-cat-ic{
+    width:46px; height:46px; border-radius:12px;
+    display:grid; place-items:center; margin-bottom:14px;
+    background:linear-gradient(150deg,rgba(21,154,173,.14),rgba(255,107,92,.16));
+    color:var(--brand);
+  }
+  .eoi-cat h3{ font-size:1.06rem; margin:0 0 4px; }
+  .eoi-cat p{ margin:0; font-size:.86rem; color:var(--muted); font-family:var(--font-body); }
+
+  /* ---------------- intake: form + assist ---------------- */
+  .eoi-intake{ display:grid; grid-template-columns:1.25fr .95fr; gap:22px; align-items:start; }
+  .eoi-card{
+    background:var(--card); border:1px solid var(--line);
+    border-radius:var(--radius); padding:28px; box-shadow:var(--shadow-sm);
+  }
+  .eoi-field{ margin-bottom:18px; }
+  .eoi-field label{ display:block; font-weight:600; font-size:.92rem; margin-bottom:7px; }
+  .eoi-field .help{ font-weight:400; color:var(--muted); font-size:.84rem; }
+  .eoi-field input[type=text], .eoi-field textarea, .eoi-field select{
+    width:100%; font-family:var(--font-body); font-size:1rem; color:var(--text);
+    background:var(--surface); border:1px solid var(--line);
+    border-radius:var(--radius-sm); padding:12px 14px; outline:0;
+    transition:border-color .18s, box-shadow .18s, background .18s;
+  }
+  .eoi-field textarea{ min-height:118px; resize:vertical; }
+  .eoi-field input:focus, .eoi-field textarea:focus, .eoi-field select:focus{
+    border-color:var(--brand-2); background:#fff;
+    box-shadow:0 0 0 4px rgba(21,154,173,.14);
+  }
+  .eoi-row{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+
+  /* assist panel */
+  .eoi-assist{
+    background:linear-gradient(180deg,#fff,#fff),
+               linear-gradient(150deg,rgba(21,154,173,.06),rgba(255,107,92,.07));
+    border:1px solid var(--line); border-radius:var(--radius); padding:24px;
+    position:sticky; top:88px;
+  }
+  .eoi-assist-head{ display:flex; align-items:center; gap:10px; margin-bottom:6px; }
+  .eoi-assist-dot{
+    width:26px; height:26px; border-radius:8px;
+    background:linear-gradient(150deg,var(--brand),var(--accent));
+    display:grid; place-items:center;
+  }
+  .eoi-assist h3{ font-size:1rem; margin:0; font-family:var(--font-body); font-weight:700; }
+  .eoi-assist .eoi-eyebrow{ color:var(--muted); }
+  .eoi-assist-body{ margin-top:16px; }
+  .eoi-assist-label{ font-family:var(--font-mono); font-size:.66rem; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); }
+  .eoi-summary{
+    margin:6px 0 18px; padding:14px 16px; min-height:70px;
+    background:var(--surface); border:1px dashed var(--line); border-radius:var(--radius-sm);
+    color:#3f5b63; font-size:.95rem;
+  }
+  .eoi-summary.empty{ color:#93a8ae; font-style:italic; }
+  .eoi-chip{
+    display:inline-flex; align-items:center; gap:6px;
+    background:rgba(21,154,173,.1); color:var(--brand);
+    border-radius:999px; padding:6px 12px; font-size:.85rem; font-weight:600;
+  }
+  .eoi-cursor::after{ content:"▍"; color:var(--accent); animation:blink 1s steps(1) infinite; }
+  @keyframes blink{ 50%{ opacity:0; } }
+
+  /* ---------------- your EOIs ---------------- */
+  .eoi-list-card{ padding:8px 8px; }
+  .eoi-req{
+    display:grid; grid-template-columns:auto 1fr auto auto; gap:16px; align-items:center;
+    padding:16px 20px; border-bottom:1px solid var(--line);
+  }
+  .eoi-req:last-child{ border-bottom:0; }
+  .eoi-req-id{ font-family:var(--font-mono); font-size:.8rem; color:var(--muted); }
+  .eoi-req-title{ font-weight:600; }
+  .eoi-req-meta{ font-size:.82rem; color:var(--muted); }
+  .eoi-pill{
+    font-size:.76rem; font-weight:600; padding:5px 12px; border-radius:999px; white-space:nowrap;
+  }
+  .eoi-pill[data-s="Received"]{ background:rgba(46,124,228,.12); color:var(--s-received); }
+  .eoi-pill[data-s="Under review"]{ background:rgba(224,149,43,.16); color:#b1701a; }
+  .eoi-pill[data-s="Invited to apply"]{ background:rgba(23,168,116,.15); color:var(--s-invited); }
+  .eoi-pill[data-s="Not progressing"]{ background:rgba(134,152,160,.16); color:var(--s-closed); }
+
+  /* ---------------- footer ---------------- */
+  .eoi-footer{ margin-top:70px; background:var(--ink); color:#dCe9ec; }
+  .eoi-footer-in{
+    max-width:var(--maxw); margin:0 auto; padding:34px 24px;
+    display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+  }
+  .eoi-footer .eoi-brand{ color:#fff; }
+  .eoi-footer small{ color:#8fb0b7; margin-left:auto; }
+
+  /* ---------------- toast ---------------- */
+  .eoi-toast{
+    position:fixed; left:50%; bottom:28px; transform:translate(-50%,120%);
+    background:var(--ink); color:#fff; padding:14px 20px; border-radius:14px;
+    box-shadow:var(--shadow-lg); font-weight:600; z-index:60;
+    transition:transform .35s cubic-bezier(.2,.8,.2,1);
+    display:flex; gap:10px; align-items:center;
+  }
+  .eoi-toast.show{ transform:translate(-50%,0); }
+  .eoi-toast .eoi-tick{ color:var(--accent-2); }
+
+  /* ---------------- responsive ---------------- */
+  @media (max-width:860px){
+    .eoi-hero-in{ grid-template-columns:1fr; padding-top:48px; }
+    .eoi-frame-wrap{ order:-1; }
+    .eoi-frame{ width:200px; height:250px; }
+    .eoi-how-in{ grid-template-columns:1fr; gap:18px; }
+    .eoi-cats{ grid-template-columns:1fr 1fr; }
+    .eoi-intake{ grid-template-columns:1fr; }
+    .eoi-assist{ position:static; }
+    .eoi-nav{ display:none; }
+  }
+  @media (max-width:480px){
+    .eoi-cats{ grid-template-columns:1fr; }
+    .eoi-row{ grid-template-columns:1fr; }
+  }
+
+  /* accessibility */
+  :focus-visible{ outline:3px solid var(--brand-2); outline-offset:2px; border-radius:6px; }
+  @media (prefers-reduced-motion:reduce){
+    *{ animation:none !important; transition:none !important; scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ===== HEADER  (port → widget: sp_header_footer) ===== -->
+  <header class="eoi-header">
+    <div class="eoi-header-in">
+      <div class="eoi-brand">
+        <span class="eoi-mark" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="4" y="3" width="16" height="18" rx="1.5" stroke="#fff" stroke-width="2"/><path d="M8 15l3-4 2 2.5L15 10l1 5" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        Creative&nbsp;Futures&nbsp;Fund
+      </div>
+      <nav class="eoi-nav" aria-label="Primary">
+        <a href="#how">How it works</a>
+        <a href="#form">Start an EOI</a>
+        <a href="#mine">Your EOIs</a>
+      </nav>
+      <div class="eoi-avatar" title="Signed in">SJ</div>
+    </div>
+  </header>
+
+  <!-- ===== HERO  (port → widget: eoi_hero) ===== -->
+  <section class="eoi-hero">
+    <div class="eoi-hero-in">
+      <div>
+        <span class="eoi-eyebrow">Expression of interest · 2026 round</span>
+        <h1>Tell us the idea, <span class="glow">before the paperwork.</span></h1>
+        <p class="eoi-lede">This is a short first look at what you want to make — not the full application. If your idea's a fit, we'll invite you to apply in full and help you through it.</p>
+        <form class="eoi-ask" id="askForm" role="search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M18 6l-2.5 2.5M6 18l2.5-2.5M18 18l-2.5-2.5" stroke="#93a8ae" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <input id="askInput" type="text" aria-label="In a sentence, what do you want to make?" placeholder="In a sentence, what do you want to make?">
+          <button class="eoi-btn" type="submit">Start my EOI</button>
+        </form>
+        <p class="eoi-hint">The Fund assistant drafts a plain-language summary for the assessment panel as you write.</p>
+      </div>
+      <div class="eoi-frame-wrap" aria-hidden="true">
+        <div>
+          <div class="eoi-frame"><div class="eoi-canvas"></div></div>
+          <div class="eoi-plaque">
+            <div class="ref">EOI-2026-0142</div>
+            <div class="cap">Untitled — in review</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS  (port → widget: eoi_how) ===== -->
+  <section class="eoi-how" id="how">
+    <div class="eoi-how-in">
+      <div class="eoi-step">
+        <span class="eoi-step-n">1</span>
+        <div>
+          <span class="when">A few minutes</span>
+          <h3>Lodge your EOI</h3>
+          <p>A working title and a short description of your idea. That's all we need to start.</p>
+        </div>
+      </div>
+      <div class="eoi-step">
+        <span class="eoi-step-n">2</span>
+        <div>
+          <span class="when">A few weeks</span>
+          <h3>We review</h3>
+          <p>A small panel reads every idea and looks for fit with the round's priorities.</p>
+        </div>
+      </div>
+      <div class="eoi-step">
+        <span class="eoi-step-n">3</span>
+        <div>
+          <span class="when">If it fits</span>
+          <h3>Apply in full</h3>
+          <p>We invite you to submit the full application — and walk you through the detail.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DISCIPLINE TILES  (port → widget: eoi_discipline_picker) ===== -->
+  <section class="eoi-section eoi-shell" id="disciplines">
+    <span class="eoi-eyebrow">Browse by artform</span>
+    <h2>What kind of work is it?</h2>
+    <p class="eoi-sub">Pick the closest fit to get started — you can change it on the form. Working across artforms is welcome.</p>
+    <div class="eoi-cats">
+      <button class="eoi-cat" data-cat="Visual arts">
+        <span class="eoi-cat-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 1 0 0 18c1.7 0 2-1.2 1.2-2.1-.8-.9-.3-2.2 1-2.2H17a4 4 0 0 0 4-4c0-5-4-7.7-9-7.7Z" stroke="currentColor" stroke-width="1.6"/><circle cx="8" cy="10" r="1.1" fill="currentColor"/><circle cx="12" cy="7.5" r="1.1" fill="currentColor"/><circle cx="16" cy="10" r="1.1" fill="currentColor"/></svg></span>
+        <h3>Visual arts</h3>
+        <p>Painting, sculpture, installation, photography</p>
+      </button>
+      <button class="eoi-cat" data-cat="Performing arts">
+        <span class="eoi-cat-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 5c3 1 5 1 8 0M4 5v6a4 4 0 0 0 8 0V5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M20 5c-1.5.5-2.5.5-4 0M20 5v6a2 2 0 0 1-4 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+        <h3>Performing arts</h3>
+        <p>Theatre, dance, live performance</p>
+      </button>
+      <button class="eoi-cat" data-cat="Music &amp; sound">
+        <span class="eoi-cat-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 18V6l10-2v12" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="6.5" cy="18" r="2.5" stroke="currentColor" stroke-width="1.6"/><circle cx="16.5" cy="16" r="2.5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        <h3>Music &amp; sound</h3>
+        <p>Composition, recording, sound art</p>
+      </button>
+      <button class="eoi-cat" data-cat="Across artforms">
+        <span class="eoi-cat-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="12" r="3.4" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        <h3>Across artforms</h3>
+        <p>Interdisciplinary, digital, community</p>
+      </button>
+    </div>
+  </section>
+
+  <!-- ===== INTAKE: form + assist  (port → widget: eoi_form) ===== -->
+  <section class="eoi-section eoi-shell" id="form">
+    <span class="eoi-eyebrow">Your expression of interest</span>
+    <h2>Sketch out your idea</h2>
+    <p class="eoi-sub">A working title and a short description is all we need. You'll firm up the detail later if you're invited to apply.</p>
+    <div class="eoi-intake">
+      <form class="eoi-card" id="eoiForm">
+        <div class="eoi-field">
+          <label for="fTitle">Working title</label>
+          <input id="fTitle" type="text" placeholder="What are you calling it for now?">
+        </div>
+        <div class="eoi-field">
+          <label for="fIdea">Your idea <span class="help">— what do you want to make, and who's it for?</span></label>
+          <textarea id="fIdea" placeholder="A short paragraph is plenty. What's the work, why now, and who will it reach?"></textarea>
+        </div>
+        <div class="eoi-row">
+          <div class="eoi-field">
+            <label for="fCat">Artform</label>
+            <select id="fCat">
+              <option>Visual arts</option>
+              <option>Performing arts</option>
+              <option>Music &amp; sound</option>
+              <option>Literature &amp; storytelling</option>
+              <option>Screen &amp; digital</option>
+              <option>Ngā Toi Māori — Māori arts</option>
+              <option>Across artforms</option>
+            </select>
+          </div>
+          <div class="eoi-field">
+            <label for="fAmt">Indicative amount <span class="help">— a rough range is fine</span></label>
+            <select id="fAmt">
+              <option>Up to $5,000</option>
+              <option>$5,000 – $25,000</option>
+              <option>$25,000 – $100,000</option>
+              <option>Over $100,000</option>
+            </select>
+          </div>
+        </div>
+        <button class="eoi-btn" type="submit">Lodge expression of interest</button>
+      </form>
+
+      <aside class="eoi-assist" aria-live="polite">
+        <div class="eoi-assist-head">
+          <span class="eoi-assist-dot" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M12 2l2.2 6.2L20 10l-5.8 1.8L12 18l-2.2-6.2L4 10l5.8-1.8z"/></svg></span>
+          <div>
+            <span class="eoi-eyebrow">AI</span>
+            <h3>Fund assistant</h3>
+          </div>
+        </div>
+        <div class="eoi-assist-body">
+          <span class="eoi-assist-label">Summary for the assessment panel</span>
+          <div class="eoi-summary empty" id="aiSummary">Start describing your idea and I'll draft a clear, plain-language summary for the panel who'll read it.</div>
+          <span class="eoi-assist-label">Suggested artform</span>
+          <div style="margin-top:8px"><span class="eoi-chip" id="aiChip">—</span></div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ===== YOUR EOIs  (port → widget: eoi_my_eois) ===== -->
+  <section class="eoi-section eoi-shell" id="mine">
+    <span class="eoi-eyebrow">Track</span>
+    <h2>Your expressions of interest</h2>
+    <p class="eoi-sub">Every idea you've put forward, and where it's up to.</p>
+    <div class="eoi-card eoi-list-card" id="eoiList">
+      <div class="eoi-req">
+        <span class="eoi-req-id">EOI-2026-0138</span>
+        <div><div class="eoi-req-title">Youth songwriting residency</div><div class="eoi-req-meta">Music &amp; sound · lodged 2 weeks ago</div></div>
+        <span class="eoi-req-meta">$5k – $25k</span>
+        <span class="eoi-pill" data-s="Invited to apply">Invited to apply</span>
+      </div>
+      <div class="eoi-req">
+        <span class="eoi-req-id">EOI-2026-0142</span>
+        <div><div class="eoi-req-title">Harbourside light installation</div><div class="eoi-req-meta">Visual arts · lodged 5 days ago</div></div>
+        <span class="eoi-req-meta">$25k – $100k</span>
+        <span class="eoi-pill" data-s="Under review">Under review</span>
+      </div>
+      <div class="eoi-req">
+        <span class="eoi-req-id">EOI-2026-0147</span>
+        <div><div class="eoi-req-title">Verbatim theatre on the rebuild</div><div class="eoi-req-meta">Performing arts · lodged yesterday</div></div>
+        <span class="eoi-req-meta">$5k – $25k</span>
+        <span class="eoi-pill" data-s="Received">Received</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER  (port → widget: sp_header_footer) ===== -->
+  <footer class="eoi-footer">
+    <div class="eoi-footer-in">
+      <div class="eoi-brand">
+        <span class="eoi-mark" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="4" y="3" width="16" height="18" rx="1.5" stroke="#fff" stroke-width="2"/><path d="M8 15l3-4 2 2.5L15 10l1 5" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        Creative&nbsp;Futures&nbsp;Fund
+      </div>
+      <small>Expression of interest · prototype · scheme name is a placeholder</small>
+    </div>
+  </footer>
+
+  <div class="eoi-toast" id="toast"><span class="eoi-tick">✓</span><span id="toastMsg">Expression of interest lodged</span></div>
+
+<script>
+  /* Prototype behaviour only — client-side, no backend.
+     Mirrors what the ServiceNow flow + AI action will do for real:
+       - drafts a plain-language panel summary from the description
+       - suggests an artform
+       - creates a tracked EOI row
+     NOTE: deliberately creates no linked OOTB record — the EOI is
+     its own record in its own scope (that's the whole point). */
+
+  const $ = s => document.querySelector(s);
+  const catButtons = document.querySelectorAll('.eoi-cat');
+  const idea = $('#fIdea'), title = $('#fTitle'), cat = $('#fCat');
+  const aiSummary = $('#aiSummary'), aiChip = $('#aiChip');
+
+  // discipline tiles → preselect + scroll to form
+  catButtons.forEach(b=>{
+    b.addEventListener('click',()=>{
+      catButtons.forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');
+      const v = b.dataset.cat.replace('&amp;','&');
+      [...cat.options].forEach(o=>{ if(o.text.replace('&amp;','&')===v) cat.value=o.value; });
+      $('#form').scrollIntoView({behavior:'smooth'});
+      title.focus();
+    });
+  });
+
+  // fake "keyword" classifier — the port replaces this with a real AI action
+  function suggestArtform(t){
+    t = t.toLowerCase();
+    if(/paint|sculpt|install|photo|mural|exhibit|gallery|canvas/.test(t)) return 'Visual arts';
+    if(/theatre|theater|dance|perform|stage|choreo|play/.test(t))          return 'Performing arts';
+    if(/music|song|sound|compos|record|album|choir|band/.test(t))          return 'Music & sound';
+    if(/book|poem|poetry|write|story|novel|zine/.test(t))                   return 'Literature & storytelling';
+    if(/film|screen|video|game|digital|animation|vr/.test(t))              return 'Screen & digital';
+    return 'Across artforms';
+  }
+
+  // draft a summary with a little "typing" flourish
+  let typeTimer;
+  function draftSummary(){
+    const s = title.value.trim(), d = idea.value.trim();
+    if(!s && !d){
+      aiSummary.classList.add('empty');
+      aiSummary.textContent = "Start describing your idea and I'll draft a clear, plain-language summary for the panel who'll read it.";
+      aiChip.textContent = '—';
+      return;
+    }
+    const guess = suggestArtform(s+' '+d);
+    aiChip.textContent = guess;
+    [...cat.options].forEach(o=>{ if(o.text.replace('&amp;','&')===guess) cat.value=o.value; });
+
+    const draft = `${s || 'Untitled work'} — ${d ? d.replace(/\s+/g,' ').slice(0,150) : 'idea still being described'}${d.length>150?'…':''} Proposed artform: ${guess}.`;
+    aiSummary.classList.remove('empty');
+    clearTimeout(typeTimer);
+    let i=0; aiSummary.textContent=''; aiSummary.classList.add('eoi-cursor');
+    (function tick(){
+      aiSummary.textContent = draft.slice(0,i);
+      if(i++ < draft.length){ typeTimer=setTimeout(tick, 8); }
+      else aiSummary.classList.remove('eoi-cursor');
+    })();
+  }
+  let debounce;
+  [title,idea].forEach(el=>el.addEventListener('input',()=>{ clearTimeout(debounce); debounce=setTimeout(draftSummary,250); }));
+
+  // hero "one-line idea" → seed the form
+  $('#askForm').addEventListener('submit',e=>{
+    e.preventDefault();
+    title.value = $('#askInput').value;
+    $('#form').scrollIntoView({behavior:'smooth'});
+    draftSummary(); idea.focus();
+  });
+
+  // submit → add a tracked EOI
+  let counter = 148;
+  $('#eoiForm').addEventListener('submit',e=>{
+    e.preventDefault();
+    if(!title.value.trim()){ title.focus(); return; }
+    const id = 'EOI-2026-0' + (counter++);
+    const list = $('#eoiList');
+    const row = document.createElement('div');
+    row.className='eoi-req';
+    row.innerHTML = `<span class="eoi-req-id">${id}</span>
+      <div><div class="eoi-req-title">${title.value.replace(/</g,'&lt;')}</div>
+      <div class="eoi-req-meta">${cat.value} · just now</div></div>
+      <span class="eoi-req-meta">New</span>
+      <span class="eoi-pill" data-s="Received">Received</span>`;
+    list.prepend(row);
+    title.value=''; idea.value=''; draftSummary();
+    showToast(`${id} lodged — we'll be in touch after the panel reviews it`);
+    $('#mine').scrollIntoView({behavior:'smooth'});
+  });
+
+  function showToast(msg){
+    $('#toastMsg').textContent = msg;
+    const t = $('#toast'); t.classList.add('show');
+    setTimeout(()=>t.classList.remove('show'), 3600);
+  }
+</script>
+</body>
+</html>
