@@ -15,7 +15,7 @@ A few things to have ready. Nothing here needs admin rights on your own machine.
 
 Everyone works on their own instance. Reserve one before we start:
 
-1. Open the **[instance reservation page](https://soc-jul-3647-instructor-0001.lab.service-now.com/sp?id=instance_reservation)**.
+1. Open the **[instance reservation page](https://clabs.link/vibecodeakl-jul-4906)**.
 2. Enter the **reservation code** — your instructor will give you this at the start of
    the session.
 3. Write down the **instance URL, username and password** it gives you. You'll need all
